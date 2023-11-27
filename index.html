@@ -1,61 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Sito Responsive Tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Slider</title>
-    <link rel="stylesheet" href="./css/style.css" />
-</head>
+    <!-- /Sito Responsive Tag -->
+    <title>Carosello Array di Oggetti AC MILAN</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- /Font Awesome-->
 
-<body>
+    <!-- Import Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- /Import Bootstrap CSS -->
 
-    <div id="app">
+    <!-- Foglio stile Css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- /Foglio stile Css -->
+  </head>
+  <body>
+    <div class="container p-5">
+        <div class="carousel-container d-flex">
+            <div id="carousel">
+                <img id="active-img" src="" alt="">
+                <div id="descrizione"></div>
+            </div>
 
-        <div class="container">
-            <div class="slider-wrapper" tabindex="0">
-
-                <div class="item">
-                    <img src="img/01.webp" alt="Spiderman" />
-                    <div class="text">
-                        <h3>Spiderman</h3>
-                        <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit
-                            tempore aliquid deleniti aut
-                            veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum
-                            corporis.
-                        </p>
-                    </div>
+            <div id="thumbnails">
+                <div class="arrow" id="arrow-down">
+                    <i class="fa-solid fa-circle-chevron-down"></i>
                 </div>
 
-                <div class="thumbs">
-                    <div class="prev"></div>
-                    <div class="next"></div>
-                    <div class="thumb active">
-                        <img src="img/01.webp" alt="Svezia" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/02.webp" alt="Ratchet & Clank" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/03.webp" alt="Fortnite" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/04.webp" alt="Stray" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/05.webp" alt="Avengers" />
-                    </div>
+                <div class="arrow" id="arrow-up">
+                    <i class="fa-solid fa-circle-chevron-up"></i>
                 </div>
-
             </div>
         </div>
 
-    </div>
-
-    <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
-    <script src="./js/script.js"></script>
-</body>
-
+    <!-- Import Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Import Bootstrap JS -->
+    <script src="js/main.js"></script>
+  </body>
 </html>

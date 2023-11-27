@@ -1,105 +1,84 @@
+/* <------ MY VERSION ------ */
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.container {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.carousel-container {
+  height: 600px;
 }
 
-.item {
-    float: left;
-    width: 700px;
-    height: 300px;
-    position: relative;
+#carousel img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
-.item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.container #carousel {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16/9;
 }
 
-.item .text {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    text-align: right;
-    color: white;
+#descrizione {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  text-align: right;
+  color: white;
 }
 
-.thumbs {
-    float: left;
-    height: 300px;
-    background: #000;
-    position: relative;
+.container #carousel .title {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-.thumb {
-    height: calc((300px) / 5);
-    opacity: 0.5;
+.container #thumbnails {
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  background-color: black;
 }
 
-.thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.container #thumbnails .thumbnail {
+  width: 300px;
+  object-fit: cover;
+  opacity: 0.4;
 }
 
-.thumb.active {
-    border: 2px solid #ccc;
-    opacity: 1;
+.container #thumbnails .thumbnail.active {
+  opacity: 1;
+  border: 4px solid white;
 }
 
-.prev, .next {
-    width: 20px;
-    height: 20px;
-    margin: 10px 0;
-    border-radius: 50%;
-    background: #ccc;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    cursor: pointer;
-    z-index: 999;
+.container #thumbnails .arrow {
+  position: absolute;
+  z-index: 999;
+  cursor: pointer;
+  color: white;
 }
 
-.next {
-    bottom: 0;
+.container #thumbnails .arrow#arrow-down {
+  bottom: 2px;
+  left: 50%;
 }
 
-/*
-EXTRA: in questo esempio gli accordion vengono creati
-usando 2 bordi di un quadratino ruotato di 45 gradi
-In una versione base si possono usare delle icone
-oppure i caratteri ∧ (&and;) e ∨ (&or;)
- */
-.prev::after {
-    content: '';
-    width: 10px;
-    height: 10px;
-    border-top: 1px solid black;
-    border-right: 1px solid black;
-    display: block;
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%) rotate(-45deg);
+.container #thumbnails .arrow#arrow-up {
+  top: 2px;
+  left: 50%;
 }
 
-.next::before {
-    content: '';
-    width: 10px;
-    height: 10px;
-    border-top: 1px solid black;
-    border-right: 1px solid black;
-    display: block;
-    position: absolute;
-    bottom: 35%;
-    left: 50%;
-    transform: translate(-50%) rotate(135deg);
+.container .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding-top: 1em;
+}
+
+.container .buttons i {
+  cursor: pointer;
 }
