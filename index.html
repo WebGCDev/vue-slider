@@ -26,41 +26,53 @@
     />
     <!-- /Import Bootstrap CSS -->
 
+    <!-- Import VUE JS -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Import VUE JS -->
+
     <!-- Foglio stile Css -->
     <link rel="stylesheet" href="css/style.css" />
     <!-- /Foglio stile Css -->
   </head>
   <body>
-    <div class="container p-5">
-        <div class="carousel-container d-flex">
-            <div id="carousel">
-                <img id="active-img" src="" alt="">
-                <div id="descrizione"></div>
+    <div id="app" class="carousel">
+      <div class="container">
+        <div @mouseover="stopInterval" @mouseleave="clock" class="slider">
+          <div class="items-carousel">
+            <div class="block-carousel">
+              <img
+                :src="carousel[counter].image"
+                :alt="carousel[counter].image"
+              />
+              <div class="block-text">
+                <h3>{{carousel[counter].title}}</h3>
+                <p>{{carousel[counter].text}}</p>
+              </div>
             </div>
+          </div>
 
-            <div id="thumbnails">
-                <div class="arrow" id="arrow-down">
-                    <i class="fa-solid fa-circle-chevron-down"></i>
-                </div>
+          <div @click="upDown(false)" class="button-carousel up">
+            <i class="fa-solid fa-chevron-up"></i>
+          </div>
 
-                <div class="arrow" id="arrow-up">
-                    <i class="fa-solid fa-circle-chevron-up"></i>
-                </div>
-            </div>
+          <div @click="upDown(true)" class="button-carousel down">
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+
+          <div class="thumbnails">
+            <img
+              v-for="(images,index) in carousel"
+              @click="counter = index"
+              :class="(counter === index) ? 'active':'inactive'"
+              :src="images.image"
+              :alt="images.image"
+            />
+          </div>
         </div>
-
-    <!-- Import Bootstrap JS -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Import Bootstrap JS -->
+      </div>
+    </div>
     <!-- Import JS -->
     <script src="js/main.js"></script>
     <!-- Import JS -->
-    <!-- Import VUE JS -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <!-- Import VUE JS -->
   </body>
 </html>

@@ -1,31 +1,72 @@
-const images = [
-  {
-    image: 'img/01.jpg',
-    title: 'Paolo Maldini',
-    text: 'Se da bambino mi fossi scritto una storia, la storia più bella che mi potessi immaginare, avrei scritto il mio sogno come effettivamente mi sta accadendo.',
-  },
-  {
-    image: 'img/02.jpg',
-    title: 'Franco Baresi',
-    text: 'Le certezze sono queste: il Milan è ancora in corsa su tre fronti, campionato, Coppa Italia e Champions League. Per restare competitivi a tutti i livelli si perde qualcosa, in questo caso qualche punto in Italia.',
-  },
-  {
-    image: 'img/03.jpg',
-    title: 'Marco Van Basten',
-    text: 'Quando un giocatore smette, diventa sempre migliore. Io ho giocato tante brutte partite, ho sbagliato gol clamorosi. Mi dite che sono stato il più grande ma la verità è che ho fatto parte di una squadra imbottita di campioni.',
-  },
-  {
-    image: 'img/04.jpg',
-    title: 'Ricardo Kaka',
-    text: 'Quando lo vidi la prima volta mi misi le mani nei capelli: occhialini, pettinatissimo, faccia da bravo ragazzo, solo non vedevo la cartella con i libri e la merendina. Oddio, abbiamo preso uno studente universitario, ho pensato! Poi però è sceso in campo e… Apriti cielo. Ma apriti per davvero… Con il pallone tra i piedi era mostruoso. Uno dei giocatori più forti che abbia mai visto.',
-  },
-  {
-    image: 'img/05.jpg',
-    title: 'Alessandro Nesta',
-    text: 'Il mio trasferimento al Milan fu molto strano. La mattina mi allenai a Formello, era ultimo giorno di mercato, poi scese in campo Cragnotti che mi disse che ero stato venduto al Milan. Non potevo rifiutare, conoscevamo tutti i problemi del club e quella stessa sera mi sono ritrovato nello stadio San Siro di fronte a 60.000 spettatori. È stata dura perché non ho nemmeno avuto il tempo di capire cosa stava succedendo.',
-  },
-];
+const { createApp } = Vue;
 
+createApp({
+  data() {
+    return {
+      counter: 0,
+
+      carousel: [
+        {
+          image: 'img/01.jpg',
+          title: 'Paolo Maldini',
+          text: 'Se da bambino mi fossi scritto una storia, la storia più bella che mi potessi immaginare, avrei scritto il mio sogno come effettivamente mi sta accadendo.',
+        },
+
+        {
+          image: 'img/02.jpg',
+          title: 'Franco Baresi',
+          text: 'Le certezze sono queste: il Milan è ancora in corsa su tre fronti, campionato, Coppa Italia e Champions League. Per restare competitivi a tutti i livelli si perde qualcosa, in questo caso qualche punto in Italia.',
+        },
+        {
+          image: 'img/03.jpg',
+          title: 'Marco Van Basten',
+          text: 'Quando un giocatore smette, diventa sempre migliore. Io ho giocato tante brutte partite, ho sbagliato gol clamorosi. Mi dite che sono stato il più grande ma la verità è che ho fatto parte di una squadra imbottita di campioni.',
+        },
+        {
+          image: 'img/04.jpg',
+          title: 'Ricardo Kaka',
+          text: 'Quando lo vidi la prima volta mi misi le mani nei capelli: occhialini, pettinatissimo, faccia da bravo ragazzo, solo non vedevo la cartella con i libri e la merendina. Oddio, abbiamo preso uno studente universitario, ho pensato! Poi però è sceso in campo e… Apriti cielo. Ma apriti per davvero… Con il pallone tra i piedi era mostruoso. Uno dei giocatori più forti che abbia mai visto.',
+        },
+        {
+          image: 'img/05.jpg',
+          title: 'Alessandro Nesta',
+          text: 'Il mio trasferimento al Milan fu molto strano. La mattina mi allenai a Formello, era ultimo giorno di mercato, poi scese in campo Cragnotti che mi disse che ero stato venduto al Milan. Non potevo rifiutare, conoscevamo tutti i problemi del club e quella stessa sera mi sono ritrovato nello stadio San Siro di fronte a 60.000 spettatori. È stata dura perché non ho nemmeno avuto il tempo di capire cosa stava succedendo.',
+        },
+      ],
+    };
+  },
+
+  methods: {
+    upDown(isNext) {
+      isNext ? this.counter++ : this.counter--;
+      this.counterControl();
+    },
+
+    counterControl() {
+      if (this.counter < 0) {
+        this.counter = this.carousel.length - 1;
+      } else if (this.counter === this.carousel.length) {
+        this.counter = 0;
+      }
+    },
+    clock() {
+      this.timer = setInterval(() => {
+        this.counter++;
+        this.counterControl();
+      }, 3000);
+    },
+    stopInterval() {
+      clearInterval(this.timer);
+    },
+  },
+
+  mounted() {
+    this.clock();
+  },
+}).mount('#app');
+
+/* VERSIONE OLD */
+/* 
 //Constanti e Variabili
 const attivaImmagine = document.getElementById('active-img');
 const arrowUp = document.getElementById('arrow-up');
@@ -105,4 +146,4 @@ function changeattivaImmagineReverse() {
   contenitoreTitolo.innerHTML = images[index].title;
   contenitoreTesto.innerHTML = images[index].text;
   thumbnailEl[index].classList.add('active');
-}
+} */

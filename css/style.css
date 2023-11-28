@@ -6,79 +6,98 @@
   box-sizing: border-box;
 }
 
-.carousel-container {
-  height: 600px;
+.hide {
+  display: none;
 }
 
-#carousel img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
-.container #carousel {
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 16/9;
-}
-
-#descrizione {
-  position: absolute;
-  bottom: 10px;
-  right: 12px;
-  text-align: right;
-  color: white;
-}
-
-.container #carousel .title {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.container #thumbnails {
-  display: flex;
-  flex-flow: column nowrap;
-  position: relative;
-  background-color: black;
-}
-
-.container #thumbnails .thumbnail {
-  width: 300px;
-  object-fit: cover;
-  opacity: 0.4;
-}
-
-.container #thumbnails .thumbnail.active {
-  opacity: 1;
-  border: 4px solid white;
-}
-
-.container #thumbnails .arrow {
-  position: absolute;
-  z-index: 999;
-  cursor: pointer;
-  color: white;
-}
-
-.container #thumbnails .arrow#arrow-down {
-  bottom: 2px;
-  left: 50%;
-}
-
-.container #thumbnails .arrow#arrow-up {
-  top: 2px;
-  left: 50%;
-}
-
-.container .buttons {
+.carousel {
+  height: 100vh;
   display: flex;
   justify-content: center;
-  gap: 30px;
-  padding-top: 1em;
+  align-items: center;
 }
 
-.container .buttons i {
+.block-carousel {
+  height: 100%;
+  position: relative;
+}
+
+.block-text {
+  position: absolute;
+  bottom: 4%;
+  right: 4%;
+  text-align: right;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.container {
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+}
+
+.slider {
   cursor: pointer;
+  position: relative;
+  display: flex;
+  height: 100%;
+}
+
+.items-carousel {
+  width: 80%;
+  height: 100%;
+}
+
+.items-carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbnails {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 100%;
+}
+
+.thumbnails img {
+  width: 100%;
+  height: calc(100% / 5);
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.inactive {
+  filter: brightness(0.2);
+}
+
+.active {
+  filter: brightness(1);
+}
+
+.button-carousel {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.584);
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  right: 8%;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.button-carousel:hover {
+  background-color: white;
+}
+
+.button-carousel.up {
+  top: 10px;
+}
+
+.button-carousel.down {
+  bottom: 10px;
 }
